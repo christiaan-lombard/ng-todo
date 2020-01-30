@@ -1,0 +1,25 @@
+
+
+
+@mixin app-theme($theme){
+
+    $primary: map-get($theme, primary);
+
+    .cl-app-root {
+
+        .app-backdrop {
+            background-color: mat-color($primary, 500);
+            color: mat-color($primary, '500-contrast');
+        }
+
+        .app-title {
+            text-decoration: none;
+            flex: 1 1 auto;
+            color: mat-color($primary, '500-contrast');
+        }
+
+
+    }
+
+
+}

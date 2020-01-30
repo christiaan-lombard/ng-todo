@@ -1,0 +1,16 @@
+<div class="user-container" *ngIf="user$ | async as user else loginContainer">
+
+    <p>Signed in as {{ user.displayName }}</p>
+
+    <button type="button" mat-raised-button (click)="logout()">
+        Sign Out
+    </button>
+
+</div>
+<ng-template #loginContainer>
+    <div class="login-container">
+        <button type="button" mat-raised-button (click)="loginGoogle()">
+            Sign In with Google
+        </button>
+    </div>
+</ng-template>

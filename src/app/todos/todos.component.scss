@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+
+:host {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 1px;
+}
+
+.mat-card {
+    flex: 1 1 auto;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    border-top-left-radius: 24px;
+    @include mat-elevation(8);
+}

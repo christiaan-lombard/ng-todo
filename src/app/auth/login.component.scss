@@ -1,0 +1,18 @@
+
+
+:host {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-form-field {
+    color: white;
+    display: block;
+}
+
+.user-container {
+    text-align: center;
+}

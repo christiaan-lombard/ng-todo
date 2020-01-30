@@ -1,0 +1,17 @@
+<mat-card *ngIf="board$ | async as board else placeholderBoard">
+    <mat-card-title>{{ board.title }}</mat-card-title>
+
+    <mat-card-content>
+
+        <p *ngFor="let item of board.items">
+            <mat-checkbox [checked]="item.done"></mat-checkbox>
+            {{ item.title }}
+        </p>
+
+    </mat-card-content>
+
+</mat-card>
+
+<ng-template #placeholderBoard>
+    <mat-card></mat-card>
+</ng-template>
