@@ -1,17 +1,13 @@
-<mat-card *ngIf="board$ | async as board else placeholderBoard">
-    <mat-card-title>{{ board.title }}</mat-card-title>
+<ng-container *ngIf="boards$ | async as boards else placeholderBoard">
 
-    <mat-card-content>
+    <mat-card *ngFor="let board of boards" class="todo-board">
+        <mat-card-title>{{ board.title }}</mat-card-title>
 
-        <p *ngFor="let item of board.items">
-            <mat-checkbox [checked]="item.done"></mat-checkbox>
-            {{ item.title }}
-        </p>
+    </mat-card>
+</ng-container>
 
-    </mat-card-content>
-
-</mat-card>
 
 <ng-template #placeholderBoard>
-    <mat-card></mat-card>
+    <mat-card class="todo-board board-placeholder"></mat-card>
+    <mat-card class="todo-board board-placeholder"></mat-card>
 </ng-template>

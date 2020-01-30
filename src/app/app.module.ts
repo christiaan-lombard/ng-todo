@@ -21,6 +21,7 @@ import { TodosComponent } from './todos/todos.component';
 import { LoginComponent } from './auth/login.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { TodosService } from './todos/todos.service';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -58,7 +59,8 @@ const authGuardPipe = redirectUnauthorizedToLogin;
     ])
   ],
   providers: [
-    AngularFireAuthGuard
+    AngularFireAuthGuard,
+    TodosService
   ],
   bootstrap: [AppComponent]
 })

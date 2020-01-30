@@ -21,14 +21,13 @@ export class AppComponent implements OnInit{
 
   constructor(
     private _auth: AngularFireAuth,
-    
   ){}
 
   ngOnInit(){
 
     this.user$ = this._auth.user;
 
-
+    this.user$.subscribe(user => console.log(user));
   }
 
 

@@ -2,15 +2,23 @@
 
 :host {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
     flex: 1 1 1px;
+    align-items: flex-start;
 }
 
-.mat-card {
-    flex: 1 1 auto;
+.todo-board {
+    flex: 1 1 300px;
+    // max-width: 300px;
     margin-left: 24px;
     margin-right: 24px;
     margin-bottom: 24px;
     border-top-left-radius: 24px;
-    @include mat-elevation(8);
+    @include mat-elevation(2);
+
+
+    &.board-placeholder {
+        opacity: 0.5;
+        align-self: stretch;
+    }
 }

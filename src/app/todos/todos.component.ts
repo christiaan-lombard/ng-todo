@@ -2,7 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Board } from './todo';
+import { switchMap, tap, filter } from 'rxjs/operators';
+import { Board, Todo } from './todo';
+import { TodosService } from './todos.service';
 
 
 
@@ -16,15 +18,16 @@ import { Board } from './todo';
 })
 export class TodosComponent implements OnInit {
 
+    boards$: Observable<any>;
     board$: Observable<Board>;
+    todos$: Observable<Todo[]>
 
     constructor(
-        private _auth: AngularFireAuth,
-        private _store: AngularFirestore
+        private _todos: TodosService
     ){}
 
     ngOnInit(){
-        this.board$ = this._store.collection('boards').doc<Board>('test').valueChanges();
+        this.boards$ = this._todos.getUserBoards();
     }
 
 }
