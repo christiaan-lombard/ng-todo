@@ -4,21 +4,43 @@
     display: flex;
     flex-flow: row wrap;
     flex: 1 1 1px;
-    align-items: flex-start;
+    // align-items: flex-start;
 }
 
 .todo-board {
     flex: 1 1 300px;
-    // max-width: 300px;
-    margin-left: 24px;
-    margin-right: 24px;
-    margin-bottom: 24px;
     border-top-left-radius: 24px;
     @include mat-elevation(2);
-
-
+    background-color: white;
+    padding: 24px;
+    
     &.board-placeholder {
-        opacity: 0.5;
+        // opacity: 0.5;
         align-self: stretch;
     }
+}
+
+.todo-lists {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.todo-list {
+    flex: 0 1 300px;
+    width: 300px;
+    background-color: rgba(black, 0.1);
+    padding: 12px;
+    border-radius: 6px;
+    margin-right: 12px;
+    @include mat-elevation(1);
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+
+    .mat-checkbox {
+        margin-right: 12px;
+    }
+
 }

@@ -16,9 +16,10 @@ trigger('routeAnimations', [
                 left: 0,
                 width: '100%',
                 height: '100%',
-                zIndex: 1
+                zIndex: 1,
+                opacity: 1
             }),
-            animate('500ms ease-out', style({ top: '100%' }))
+            animate('500ms ease-out', style({ top: '50%', opacity: 0 }))
         ]),
     ]),
     transition('LoginPage => TodosPage', [

@@ -2,6 +2,10 @@
 
     <p>Signed in as {{ user.displayName }}</p>
 
+    <mat-nav-list *ngIf="user_boards$ | async as boards">
+        <a mat-list-item *ngFor="let board of boards" [routerLink]="['/boards', board._id]">{{ board.title }}</a>
+    </mat-nav-list>
+
     <button type="button" mat-raised-button (click)="logout()">
         Sign Out
     </button>

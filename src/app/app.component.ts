@@ -12,7 +12,7 @@ import { SLIDE_IN_ANIMATION } from './app-animations';
   styleUrls: ['./app.component.scss'],
   animations: [SLIDE_IN_ANIMATION],
   host: {
-    class: 'cl-app-root'
+    class: 'cl-app-root mat-typography'
   }
 })
 export class AppComponent implements OnInit{

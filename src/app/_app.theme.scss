@@ -4,12 +4,12 @@
 @mixin app-theme($theme){
 
     $primary: map-get($theme, primary);
+    $foreground: map-get($theme, foreground);
 
     .cl-app-root {
 
         .app-backdrop {
             background-color: mat-color($primary, 500);
-            color: mat-color($primary, '500-contrast');
         }
 
         .app-title {
@@ -17,6 +17,10 @@
             flex: 1 1 auto;
             color: mat-color($primary, '500-contrast');
         }
+
+        .app-content {
+        }
+
 
 
     }

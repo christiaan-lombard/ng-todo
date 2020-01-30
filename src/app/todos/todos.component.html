@@ -1,13 +1,44 @@
-<ng-container *ngIf="boards$ | async as boards else placeholderBoard">
+<ng-container *ngIf="data$ | async as data else placeholderBoard;">
 
-    <mat-card *ngFor="let board of boards" class="todo-board">
-        <mat-card-title>{{ board.title }}</mat-card-title>
+    <div class="todo-board">
 
-    </mat-card>
+        <h2>{{ data.board?.title }}</h2>
+
+        <div class="todo-lists">
+
+            <div class="todo-list" *ngFor="let group of data.groups; trackBy: trackById">
+
+                <h3>{{ group.list.title }}</h3>
+
+                <div class="todo-item" *ngFor="let item of group.items; trackBy: trackById">{{ item.title }}</div>
+
+                <button mat-icon-button (click)="addItem(data.id, group.list._id)">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div>
+            <div class="todo-list">
+
+                <h3>Default</h3>
+
+                <div class="todo-item" *ngFor="let item of data.ungrouped; trackBy: trackById">
+                    <mat-checkbox></mat-checkbox>
+                    <span>{{ item.title }}</span>
+                </div>
+
+                <button mat-icon-button (click)="addItem(data.id)">
+                    <mat-icon>add</mat-icon>
+                </button>
+
+            </div>
+
+
+
+        </div> 
+
+    </div>
 </ng-container>
 
 
 <ng-template #placeholderBoard>
-    <mat-card class="todo-board board-placeholder"></mat-card>
     <mat-card class="todo-board board-placeholder"></mat-card>
 </ng-template>

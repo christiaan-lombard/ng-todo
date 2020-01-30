@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
@@ -51,10 +52,11 @@ const authGuardPipe = redirectUnauthorizedToLogin;
     MatFormFieldModule,
     MatIconModule,
     MatCheckboxModule,
+    MatListModule,
 
     // Router
     RouterModule.forRoot([
-      { path: '', component: TodosComponent,  data: { animation: 'TodosPage', authGuardPipe }, canActivate: [AngularFireAuthGuard] },
+      { path: 'boards/:board_id', component: TodosComponent,  data: { animation: 'TodosPage', authGuardPipe }, canActivate: [AngularFireAuthGuard] },
       { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' }}
     ])
   ],
